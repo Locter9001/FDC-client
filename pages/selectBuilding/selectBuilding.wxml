@@ -1,0 +1,27 @@
+<van-sticky>
+    <van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="请输入搜索关键词" sticky/>
+</van-sticky>
+
+<scroll-view class="scroll" style="{{height}}">
+    <van-checkbox-group class="show-view" value="{{ result }}" bind:change="showChange" max="{{ 1 }}">
+        <view wx:for="{{ show }}" wx:key="show" class="show-view-box">
+            <view class="show-view-block-name">{{item.name}}</view>
+            <view class="houses-bot-left">
+                <van-checkbox name="{{ item.id }}"/>
+                <view class="houses-bot-left-top">
+                    <view class="houses-bot-left-top-icon">佣</view>
+                    <view class="houses-bot-left-top-text">2.55%or1.70%（垫）</view>
+                </view>
+                <view class="houses-bot-left-bot">
+                    津地产
+                </view>
+            </view>
+        </view>
+    </van-checkbox-group>
+</scroll-view>
+
+
+
+<view class="btns">
+    <van-button type="info" round block bind:click="selectOk">确认</van-button>
+</view>

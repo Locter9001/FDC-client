@@ -1,0 +1,30 @@
+<view class="top">
+    <view class="row">
+        <view class="avatar" bind:tap="toLogin">
+            <van-image width="60px" height="60px" src="{{ avatar }}" />
+        </view>
+        <view class="userInfo">
+            {{ name }}
+        </view>
+    </view>
+</view>
+
+<view class="funcAreas">
+    <van-grid column-num="3" clickable="true">
+        <van-grid-item icon="/src/default/collect@2x.png" text="收藏" />
+        <van-grid-item icon="/src/default/customs@2x.png" text="我的客户" />
+        <van-grid-item icon="/src/default/reports@2x.png" text="报备记录" />
+    </van-grid>
+</view>
+
+<view class="setings">
+    <van-cell-group clickable="true">
+    <van-cell title="新增房源" clickable="true" bind:click="addHouse"/>
+    <van-cell title="用户管理" clickable="true" bind:click="Masters"/>
+    <van-cell title="申请注册用户" clickable="true" bind:click="allSignupUser"/>
+    <van-cell title="绩效中心" clickable="true" />
+    <van-cell title="关于我们" clickable="true" />
+    <van-cell title="设置" clickable="true" bind:click="toSettings"/>
+    </van-cell-group>
+</view>
+

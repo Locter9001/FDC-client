@@ -1,0 +1,159 @@
+page {
+    background-color: #F1F5F9;
+}
+
+.scrollView {
+    width: 100%;
+    height: 1035rpx;
+}
+
+.btns {
+    width: calc(100% - 40px);
+    height: 44px;
+    padding: 10px 20px 20px 20px;
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.the-NavBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #059669 !important;
+}
+
+.the-NavBar-title {
+    color: #FFF !important;
+}
+
+.Info-block {
+    background-color: #059669;
+    color: #FFF;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.BlockStyle {
+    width: calc(100% - 40px);
+    height: auto;
+    padding: 0 20px 10px 20px;
+}
+
+.Info-block-line-one {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.Info-block-line-one-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.theLine {
+    margin: 5px 0 !important;
+}
+
+.reports-left {
+    width: 70%;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.reports-right {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.reports-left-title {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+
+.reports-left-title-left {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.reports-left-title-right {
+    font-size: 14px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.reports-left-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.reports-left-content-title {
+    width: 60px;
+    font-size: 12px;
+    /*font-weight: bold;*/
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
+}
+.reports-left-content-text {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.Info-content {
+    /*background-color: #FFF;*/
+}
+
+.Info-content-step {
+    height: 55px;
+    padding: 0 40px;
+}
+
+.steps{
+    background: transparent !important;
+}
+
+.reports-bot {
+    height: 180px;
+    font-weight: normal;
+}
+
+.topLine {
+    width: 100%;
+    height: 25px;
+    font-size: larger;
+    font-weight: bold;
+    margin: 5px 0;
+    /*background-color: antiquewhite;*/
+}
+
+.botInfo {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+

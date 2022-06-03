@@ -1,0 +1,14 @@
+<van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="请输入搜索关键词" sticky/>
+
+<view class="show-view">
+    <view wx:for="{{ show }}" wx:key="show" class="show-view-block" bind:tap="selectUser" data-info="{{ item }}">
+        <view class="users-top-avatar">
+            <van-image width="70px" height="70px" fit="fill" round src="{{ item.src!==''?'/src/default/avatar.png':'' }}" />
+        </view>
+        <view class="users-top-midInfo">
+            <view class="users-top-midInfo-boldText">{{ item.customerName }}</view>
+            <view class="users-top-midInfo-boldText">{{ item.customerPhone }}</view>
+            <view class="users-top-midInfo-boldText users-top-midInfo-text">备注：{{ item.remarks }}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+<van-sticky>
+    <van-tabs active="{{ active }}" bind:change="theTabChange" sticky>
+        <van-tab title="待判客" name="{{ 1 }}" />
+        <van-tab title="报备有效" name="{{ 2 }}" />
+        <van-tab title="报备无效" name="{{ 3 }}" />
+        <van-tab title="已带看" name="{{ 4 }}" />
+        <van-tab title="成交" name="{{ 5 }}" />
+    </van-tabs>
+    <van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="请输入搜索关键词" sticky/>
+</van-sticky>
+
+<block wx:for="{{ show }}" wx:key="id">
+    <view style="display:{{ item.reportStatus === active ? 'flex' : 'none' }}" class="reports" >
+
+        <view class="reports-left" bind:tap="toDetail" data-item="{{ item }}">
+
+            <view class="reports-left-title">
+                <view class="reports-left-title-left">{{ item.Customer.customerName }}</view>
+                <view class="reports-left-title-right">{{ item.Customer.customerPhone }}</view>
+            </view>
+
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备项目：</view>
+                <view class="reports-left-content-text">{{ item.building }}</view>
+            </view>
+
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备时间：</view>
+                <view class="reports-left-content-text">{{ item.reportTime }}</view>
+            </view>
+
+            <view class="reports-left-content" wx:if="{{ item.reportStatus > 1 }}">
+                <view class="reports-left-content-title">判定时间：</view>
+                <view class="reports-left-content-text">{{ item.receiverTime }}</view>
+            </view>
+
+            <view class="reports-left-content" wx:if="{{ item.reportStatus === 1 }}">
+                <view class="reports-left-content-title">客户经理：</view>
+                <view class="reports-left-content-text">{{ item.originator }}</view>
+            </view>
+
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">备注信息：</view>
+                <view class="reports-left-content-text">{{ item.Customer.remarks }}</view>
+            </view>
+
+        </view>
+
+        <view class="reports-right">
+            <image class="theImage" src="{{ RState[item.reportStatus] }}" />
+            <van-button type="info" size="small" round bind:click="report">再次报备</van-button>
+        </view>
+    </view>
+</block>
+
+<view class="add" bind:tap="report">
+    <image src="/src/default/newReport@2x.png" class="add-image" />
+    <text>新增报备</text>
+</view>

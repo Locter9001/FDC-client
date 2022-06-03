@@ -1,0 +1,15 @@
+<van-cell-group>
+    <van-field model:value="{{ name }}" label-class="title" input-class="inputStyle" placeholder="匿名" label="客户姓名" required clearable  border="{{ false }}" bind:change="onProject"/>
+    <van-field model:value="{{ phone }}" label-class="title" input-class="inputStyle" placeholder="请输入客户电话" label="客户电话" required clearable  border="{{ false }}" bind:change="onProject"/>
+    <van-cell center custom-class="title" title="客户性别" required clearable title-width="100px" use-label-slot="true">
+        <van-radio-group model:value="{{ gender }}" direction="horizontal" bind:change="onChange">
+            <van-radio name="1">男</van-radio>
+            <van-radio name="0">女</van-radio>
+            <van-radio name="2">保密</van-radio>
+        </van-radio-group>
+    </van-cell>
+    <van-field model:value="{{ markers }}" label-class="title" input-class="inputStyle" placeholder="备注" label="备注" autosize clearable  border="{{ false }}" bind:change="onProject"/>
+    <view class="formSubmit">
+        <van-button type="info" custom-class="formSubmit-btn" size="normal" bind:click="addCustomer">提交</van-button>
+    </view>
+</van-cell-group>

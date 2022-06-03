@@ -1,0 +1,24 @@
+<image class="loginSrc" src="{{ loginSrc }}" mode="aspectFill"></image>
+
+
+<view class="group">
+    <van-cell-group border="{{ false }}" >
+        <view class="ipt">
+            <van-field model:value="{{ v_phone }}" placeholder="请输入手机号" border="{{ false }}" bind:change="onChange" />
+            <van-field model:value="{{ v_sms }}"  placeholder="请输入短信验证码" use-button-slot>
+                <van-button slot="button" size="small" type="default" bind:click="submitSms" disabled="{{ state }}">
+                    <text wx:if="{{time === ''}}">发送验证码</text>
+                    <van-count-down time="{{ time }}" format=" ss 秒" bind:finish="time_end" wx:if="{{time !== ''}}"/>
+                </van-button>
+            </van-field>
+        </view>
+        <view class="btns">
+            <van-button type="default" custom-class="btn" bind:click="onLogin">登录</van-button>
+            <van-button type="info" custom-class="btn" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo">微信一键登录</van-button>
+        </view>
+    </van-cell-group>
+</view>
+
+<view class="botMsg" bind:tap="signUp">
+    没有账号？申请注册！
+</view>

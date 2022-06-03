@@ -1,0 +1,86 @@
+<view class="GoodsType">
+    <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+        <van-radio name="新房" shape="square">新房</van-radio>
+        <van-radio name="二手房" shape="square">二手房</van-radio>
+    </van-radio-group>
+</view>
+<van-cell-group>
+    <!-- 房屋名称 -->
+    <van-field model:value="{{ name }}" required="true" clearable="true" label="房屋名称" placeholder="请输入房屋名称" maxlength="20"/>
+
+
+    <!-- 生成标签 -->
+    <van-field value="{{ tag }}" clearable="true" label="标签" placeholder="请输入房屋标签" bind:blur="createTagValue" border="{{ false }}" use-button-slot>
+        <van-button slot="button" size="small" color="linear-gradient(to right, #4bb0ff, #6149f6)" bind:click="createTag">
+            生成
+        </van-button>
+    </van-field>
+    <view class="tags">
+        <!-- 标签展示区 -->
+        <van-tag plain type="success" wx:for="{{ tags }}" wx:key="tags" size="medium">{{ item }}</van-tag>
+    </view>
+
+
+    <!-- 价格 -->
+    <van-field model:value="{{ price }}" required="true" clearable="true" label="价格" placeholder="请输入价格" type="number"/>
+
+
+    <!-- 开盘时间 -->
+    <van-field model:value="{{ startTime }}" required="true" clearable="true" placeholder="请选择开盘时间" label="开盘时间" use-button-slot>
+        <van-button slot="button" bind:click="onDisplay" size="small" color="linear-gradient(to right, #4bb0ff, #6149f6)">
+            打开日历
+        </van-button>
+    </van-field>
+    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" type="single" title="请选择开盘日期"/>
+
+
+    <!-- 地址 -->
+    <van-field value="{{ address.detail }}" required="true" clearable="true" label="地址" type="textarea" placeholder="请输入楼盘地址" autosize use-button-slot>
+        <van-button slot="button" bind:click="onChangeAddress" size="small" color="linear-gradient(to right, #4bb0ff, #6149f6)">
+            选择地址
+        </van-button>
+    </van-field>
+
+
+    <!-- 上传轮播图 -->
+    <view class="upload">
+        <van-field label="轮播图" readonly="true" required="true" border="{{ false }}" />
+        <view class="upload-view">
+            <van-uploader file-list="{{ FileList }}" bind:after-read="afterRead" data-imgType="item"/>
+        </view>
+    </view>
+
+
+    <!-- 户型编辑 -->
+    <van-field label="户型编辑" readonly="true" required="true" border="{{ false }}" />
+    <view class="houseForm">
+        <view class="house-item" wx:for="{{ houseForm }}" wx:key="houseForm" wx:for-index="idx">
+            <!-- 显示当前位置 -->
+            <van-divider contentPosition="center">#{{ idx }}</van-divider>
+            <!-- 户型名称 -->
+            <van-field value="{{  item.name  }}" required="true" clearable="true" label="户型名称" placeholder="请输入户型名称" bind:blur="houseName" data-idx="{{ idx }}" />
+            <!-- 户型大小 -->
+            <van-field value="{{  item.size  }}" required="true" clearable="true" type="number" label="户型大小" placeholder="请输入平米" bind:blur="houseSize" data-idx="{{ idx }}" />
+            <!-- 平方价格 -->
+            <van-field value="{{  item.price  }}" required="true" clearable="true" type="number" label="每平方米价格" placeholder="请输入平米" bind:blur="houseSizePrice" data-idx="{{ idx }}" />
+            <!-- 装修状态 -->
+            <van-field value="{{  item.decorateType  }}" required="true" clearable="true" label="装修类型" placeholder="请输入装修类型" bind:blur="houseDecorateType" data-idx="{{ idx }}" />
+            <!-- 销售状态 -->
+            <van-cell title="销售状态" readonly="true" required="true">
+                <van-switch checked="{{ item.state }}" size="24px" bind:change="houseState" data-idx="{{ idx }}" />
+            </van-cell>
+            <!-- 上传户型图 -->
+            <van-cell title="户型图" readonly="true" required="true" border="{{ false }}">
+                <van-image width="80" height="80" src="{{item.picture}}" bind:click="browse" data-idx="{{ idx }}" />
+            </van-cell>
+            <!-- 去除当前表单按钮 -->
+            <view class="deleteThis" bind:tap="deleteThisForm" data-index="{{idx}}" style="{{idx === 0?'display:none;':''}}">
+                ——
+            </view>
+        </view>
+    </view>
+    <view class="fromAdd">
+        <van-button plain hairline type="info" bind:click="onFormAddForm">新增户型</van-button>
+        <van-button type="info" bind:click="formSubmit">提交</van-button>
+    </view>
+</van-cell-group>

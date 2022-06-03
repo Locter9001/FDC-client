@@ -1,0 +1,28 @@
+.loginSrc {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.group {
+    width: calc(100% - 40px);
+    margin-top: 150px;
+    padding: 20px;
+}
+
+.ipt {
+    margin: 20px 0;
+    /*border-radius: 20px;*/
+    overflow: hidden;
+}
+
+.botMsg {
+    position: fixed;
+    bottom: 10px;
+    color: #9dbddc;
+    /*box-shadow: #ffffff 0 0 5px 1px;*/
+    left: 50%;
+    transform: translateX(-50%);
+}

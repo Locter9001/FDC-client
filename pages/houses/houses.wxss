@@ -1,0 +1,112 @@
+.goods {
+    margin: 20rpx 30rpx;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:  0 0 16px #d1d1d1,
+    -5px -5px 16px #ffffff;
+    padding: 10px;
+    background-color: #FFF;
+}
+
+.customBground {
+    background-color: #4094f4;
+    margin: 20rpx 30rpx;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:  0 0 16px #d1d1d1,
+    -5px -5px 16px #ffffff;
+}
+
+.houses-top {
+    display: flex;
+    flex-direction: row;
+}
+.houses-Image {
+    margin-right: 10px;
+}
+.houses-info {
+    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+}
+.houses-info-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.houses-info-top-left {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.houses-info-top-right {
+    width: 30%;
+    padding-right: 10rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.houses-info-top-boldText {
+    color: #000;
+    font-weight: bold;
+    font-size: unset;
+}
+.houses-bot {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.houses-bot-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.houses-bot-left-top {
+    width: 160px;
+    display: flex;
+    flex-direction: row;
+}
+.houses-bot-left-top-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    font-size: 10px;
+    background-color: red;
+    color: #FFF;
+    line-height: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.houses-bot-left-top-text {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: red;
+    line-height: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.houses-bot-left-bot {
+    width: 160px;
+    margin-left: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: gray;
+}

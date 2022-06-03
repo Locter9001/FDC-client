@@ -1,0 +1,9 @@
+<view class="setings">
+    <van-cell-group clickable="true">
+        <van-cell title="定位服务" clickable="true" center>
+            <van-switch checked="{{ location }}" size="24px" bind:change="onChange" />
+        </van-cell>
+        <van-cell title="产品说明" clickable="true" />
+        <van-cell title="退出登录" clickable="true" bind:click="exitLogin"/>
+    </van-cell-group>
+</view>

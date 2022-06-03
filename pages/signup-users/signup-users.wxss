@@ -1,0 +1,79 @@
+page {
+    height: 100%;
+    width: 100%;
+    background-color: #E2E8F0;
+}
+
+
+.scroll {
+    min-width: 100%;
+    height: calc(100% - 22.5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: center;
+}
+
+.show-view {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: center;
+}
+
+.show-view-box {
+    margin-bottom: 20px;
+    width: 650rpx;
+    min-height: 200rpx;
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow:  0 0 12px #D1D5DB,
+    -5px -5px 10px #F1F5F9;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.houses-avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 25%;
+    /*background-color: gray;*/
+}
+
+.houses-userInfo {
+    height: 62px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.houses-userInfo-name {
+    font-weight: bold;
+    color: gray;
+}
+
+.houses-userInfo-content {
+    font-weight: lighter;
+    color: gray;
+}
+
+.btns {
+    width: calc(100% - 40px);
+    height: 44px;
+    padding: 10px 20px 20px 20px;
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}

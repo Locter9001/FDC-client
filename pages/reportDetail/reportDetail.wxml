@@ -1,0 +1,89 @@
+<van-nav-bar title="报备详细" custom-class="the-NavBar" custom-style="{{ backgroundColor }}" title-class="the-NavBar-title" border="{{ false }}" >
+    <van-icon slot="left" class="the-NavBar-title" name="arrow-left" bind:click="returnPage"/>
+</van-nav-bar>
+
+
+<scroll-view class="scrollView" scroll-y="{{ true }}">
+    <view class="Info-block BlockStyle" style="{{ backgroundColor + backgroundImage }}">
+        <view class="Info-block-line-one">
+            <view class="Info-block-line-one-content">
+                <view>{{ show.Customer.customerName }}</view>
+                <view>{{ show.Customer.customerPhone }}</view>
+            </view>
+            <view class="Info-block-line-one-content">
+                <van-image image-class="theImage" width="70" height="70" src="{{ RState[show.reportStatus] }}" fit="contain" />
+            </view>
+        </view>
+        <van-divider custom-class="theLine"/>
+        <view class="reports-left">
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备项目：</view>
+                <view class="reports-left-content-text">{{ show.building }}</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备时间：</view>
+                <view class="reports-left-content-text">{{ show.reportTime }}</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备渠道：</view>
+                <view class="reports-left-content-text">{{ show.originator }}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="BlockStyle Info-content">
+        <view class="Info-content-step" style="display:{{ showIndex == null ? 'none' : 'block'}}">
+            <processBar processList="{{ showProcessList }}" iconIndex="{{ showIndex }}" ></processBar>
+        </view>
+        <van-divider custom-class="theLine"/>
+        <view class="reports-left reports-bot">
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">备注</view>
+                <view class="reports-left-content-text">：{{ show.Customer.remarks }}</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">报备人</view>
+                <view class="reports-left-content-text">：{{ show.originator }}</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">所属公司</view>
+                <view class="reports-left-content-text">：佐佑地产</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">所属门店</view>
+                <view class="reports-left-content-text">：佐佑地产</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">审核驻场</view>
+                <view class="reports-left-content-text">：{{ show.reviewer }}</view>
+            </view>
+            <view class="reports-left-content">
+                <view class="reports-left-content-title">审核时间</view>
+                <view class="reports-left-content-text">：{{ show.receiverTime }}</view>
+            </view>
+        </view>
+        <van-divider custom-class="theLine"/>
+    </view>
+    <view class="BlockStyle botInfo">
+        <view class="topLine">报备反馈</view>
+        <view class="reports-left-content">
+            <view class="reports-left-content-title">报备结果</view>
+            <view class="reports-left-content-text">：
+                <text wx:if="{{ show.reportStatus===1 }}">报备有效</text>
+                <text wx:if="{{ show.reportStatus===0 }}">报备无效</text>
+            </view>
+        </view>
+        <view class="reports-left-content">
+            <view class="reports-left-content-title">反馈</view>
+            <view class="reports-left-content-text">：{{ show.feedBack }}</view>
+        </view>
+    </view>
+</scroll-view>
+
+<view class="btns" wx:if="{{ show.reportStatus < 5 && show.reportStatus !== 3 }}">
+    <van-button type="info" loading="{{ reportOK }}" disabled="{{ reportBtnState }}" loading-text="通过中..."
+                custom-style="width:120px;" round bind:click="reportSelectOk" data-state="{{ true }}">{{ show.reportStatus !== 2? '通过' : '已带看' }}</van-button>
+    <van-button type="warning" round loading="{{ reportNO }}" disabled="{{ reportBtnState }}" loading-text="拒绝中..."
+                wx:if="{{ show.reportStatus !== 2 }}"
+                custom-style="width:120px;" bind:click="reportSelectOk" data-state="{{ false }}">拒绝</van-button>
+</view>

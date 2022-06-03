@@ -1,0 +1,38 @@
+.loginSrc {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.group {
+    width: calc(100% - 40px);
+    margin-top: 250px;
+    padding: 20px;
+}
+
+.ipt {
+    margin: 20px 0;
+    /*border-radius: 20px;*/
+    overflow: hidden;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btn {
+    width: 120px;
+}
+
+.botMsg {
+    position: fixed;
+    bottom: 10px;
+    color: #9dbddc;
+    /*box-shadow: #ffffff 0 0 5px 1px;*/
+    left: 50%;
+    transform: translateX(-50%);
+}

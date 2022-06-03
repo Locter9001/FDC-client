@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="page.js">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="page.js" />
+              <option name="relativePathToSchema" value="jar://$APPLICATION_PLUGINS_DIR$/wechat mini program/lib/wechat-miniprogram-3.5.4.jar!/jsonSchemas/page.json" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="app.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

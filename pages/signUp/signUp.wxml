@@ -1,0 +1,20 @@
+<image class="loginSrc" src="{{ loginSrc }}" mode="aspectFill"></image>
+<van-notify id="van-notify" />
+<view class="group">
+    <van-cell-group border="{{ false }}" >
+        <view class="ipt">
+            <van-uploader file-list="{{ fileList }}" preview-full-image max-count="1" bind:after-read="UpAvatar" />
+            <van-field model:value="{{ v_name }}" label="姓名" required placeholder="请输入姓名" maxlength="11" clearable bind:change="onChange" />
+            <van-field model:value="{{ v_phone }}" label="手机号" required placeholder="请输入手机号" maxlength="11" clearable bind:change="onChange" />
+            <van-field model:value="{{ v_psw }}" label="密码" required placeholder="请输入密码" maxlength="16" type="password" clearable bind:change="onChange"/>
+            <van-field model:value="{{ v_other }}" label="申请理由" required placeholder="请输入申请理由" maxlength="40" clearable bind:change="onChange"/>
+            <van-field model:value="{{ v_sms }}" label="验证码" required  placeholder="请输入短信验证码" maxlength="40" clearable use-button-slot>
+                <van-button slot="button" size="small" type="default" bind:click="submitSms" disabled="{{ state }}">
+                    <text wx:if="{{time === ''}}">发送验证码</text>
+                    <van-count-down time="{{ time }}" format=" ss 秒" bind:finish="time_end" wx:if="{{time !== ''}}"/>
+                </van-button>
+            </van-field>
+        </view>
+        <van-button type="info" custom-class="btn" form-type="submit" bind:click="submit" size="large">注册</van-button>
+    </van-cell-group>
+</view>

@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/report/report",
+    "pages/customer/customer",
+    "pages/place/place",
+    "pages/detail/detail",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/insertGoods/insertGoods",
+    "pages/login/login",
+    "pages/settingpage/setting",
+    "pages/addUser/report",
+    "pages/reportDetail/reportDetail",
+    "pages/signUp/signUp",
+    "pages/selectBuilding/selectBuilding",
+    "pages/selectUser/selectUser",
+    "pages/user-update/user-update",
+    "pages/houses/houses",
+    "pages/signup-users/signup-users"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "backgroundColor": "#fff",
+    "selectedColor": "#1989fa",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "src/tabBarIcon/home.png",
+        "selectedIconPath": "src/tabBarIcon/_home.png"
+      },
+      {
+        "pagePath": "pages/place/place",
+        "text": "报备",
+        "iconPath": "src/tabBarIcon/report.png",
+        "selectedIconPath": "src/tabBarIcon/_report.png"
+      },
+      {
+        "pagePath": "pages/customer/customer",
+        "text": "客户",
+        "iconPath": "src/tabBarIcon/custom.png",
+        "selectedIconPath": "src/tabBarIcon/_custom.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "src/tabBarIcon/mine.png",
+        "selectedIconPath": "src/tabBarIcon/_mine.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示附件房产服务"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "entryPagePath": "pages/home/home",
+  "backgroundColorTop": "#f2f2f2",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index"
+  }
+}

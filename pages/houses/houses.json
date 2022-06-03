@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-search": "@vant/weapp/search/index"
+  },
+  "navigationBarTitleText":"全部房源"
+}

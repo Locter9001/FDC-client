@@ -1,0 +1,31 @@
+<van-sticky>
+    <van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="搜索客户" sticky/>
+</van-sticky>
+
+<view class="users" wx:for="{{ show }}" wx:key="show">
+    <view class="users-top">
+        <view class="users-top-avatar">
+            <van-image width="70px" height="70px" fit="fill" round src="{{ item.src!==''?'/src/default/avatar.png':'' }}" />
+        </view>
+        <view class="users-top-midInfo">
+            <view class="users-top-midInfo-boldText">{{ item.customerName }}</view>
+            <view class="users-top-midInfo-boldText">{{ item.customerPhone }}</view>
+            <view class="users-top-midInfo-text">录入时间：{{ item.inputTime }}</view>
+            <view class="users-top-midInfo-text">备注：{{ item.remarks }}</view>
+        </view>
+        <view class="users-top-right">
+            <van-image width="40px" height="40px" fit="fill" round src="/src/default/telephone.png" bind:click="telephone" data-phone="{{ item.customerPhone }}"/>
+        </view>
+    </view>
+    <van-divider />
+    <view class="users-bot">
+        <view class="users-bot-from"><text style="font-weight: bold;">来源：</text>{{ item.from }}</view>
+        <van-button round type="info" icon="" size="small" bind:click="report">报备</van-button>
+    </view>
+</view>
+<view style="height:20px;"></view>
+
+<view class="add" bind:tap="addUser">
+    <image src="/src/default/daikanguanli@2x.png" class="add-image" />
+    <text>新增客户</text>
+</view>

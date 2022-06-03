@@ -1,0 +1,120 @@
+page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add {
+    width: 55px;
+    height: 60px;
+    padding: 5px;
+    background-color: #d6e2fa;
+    position: fixed;
+    bottom: 10%;
+    right: 0px;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-image {
+    width: 30px;
+    height: 30px;
+}
+
+.users {
+    width: calc(100% - 40px);
+    height: 155px;
+    background-color: #FFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:  0 0 8px #d1d1d1,
+    -5px -5px 8px #ffffff;
+    padding: 20rpx;
+    margin-top: 20rpx;
+}
+
+.users-top {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+.users-top-avatar {
+    margin-right: 10px;
+}
+
+.users-top-midInfo {
+    height: 90px;
+    min-width: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /*line-height: 0;*/
+}
+
+.users-top-midInfo-boldText {
+    /*height: 30px;*/
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+    align-items: center;
+}
+
+.users-top-midInfo-text {
+    font-size: 13px;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+    align-items: center;
+}
+
+.users-top-right {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.users-bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users-bot-from {
+    margin-left: 80px;
+    font-size: 14px;
+}
+
+.add {
+    width: 55px;
+    height: 60px;
+    padding: 5px;
+    background-color: #fdfdfd;
+    border-top: solid 1px #e3e3e3;
+    border-left: solid 1px #e3e3e3;
+    border-bottom: solid 1px #e3e3e3;
+    position: fixed;
+    bottom: 10%;
+    right: 0px;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-image {
+    width: 30px;
+    height: 30px;
+}

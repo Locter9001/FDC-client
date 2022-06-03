@@ -1,0 +1,27 @@
+<!--管理用户页面-->
+
+<view class="topBox">
+    <van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="请输入用户昵称或手机号" sticky/>
+</view>
+
+<scroll-view class="scroll" scroll-y="true" enable-flex>
+    <van-checkbox-group class="show-view" value="{{ result }}" bind:change="showChange" max="{{ 5 }}">
+        <view wx:for="{{ show }}" wx:key="show" class="show-view-box">
+            <image class="houses-avatar" src="{{ item.avatar == undefined ? '/src/default/avatar.png' : item.avatar }}"></image>
+            <view class="houses-userInfo">
+                <view class="houses-userInfo-name">{{ item.name }}</view>
+                <view class="houses-userInfo-content">{{ item.phone }}</view>
+                <view class="houses-userInfo-content">{{ item.other }}</view>
+                <view class="houses-userInfo-content">{{ item.signTime }}</view>
+            </view>
+            <van-checkbox name="{{ item.phone }}"/>
+        </view>
+    </van-checkbox-group>
+</scroll-view>
+
+<view class="btns">
+    <van-button type="info" loading="{{ reportOK }}" disabled="{{ reportBtnState }}" loading-text="通过中..."
+                custom-style="width:120px;" round bind:click="reportSelectOk" data-state="{{ true }}">通过</van-button>
+    <van-button type="warning" round loading="{{ reportNO }}" disabled="{{ reportBtnState }}" loading-text="拒绝中..."
+                custom-style="width:120px;" bind:click="reportSelectOk" data-state="{{ false }}">拒绝</van-button>
+</view>

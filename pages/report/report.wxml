@@ -1,0 +1,25 @@
+<van-cell-group>
+    <van-field value="{{ name }}" label-class="title" input-class="inputStyle" label="报备楼盘" readonly="true" required clearable border="{{ false }}" bind:change="onProject">
+        <van-button slot="button" size="small" icon="/src/default/newHouse@2x.png" plain hairline type="info" bind:click="selectBuilding">
+            更多楼盘信息
+        </van-button>
+    </van-field>
+    <van-field model:value="{{ customer }}" label-class="title" input-class="inputStyle" placeholder="匿名" label="客户姓名" required clearable  border="{{ false }}" bind:change="onProject">
+        <van-button slot="button" size="small" icon="/src/default/customs@2x.png" plain hairline type="info" bind:click="selectCustomer">
+            选择客户
+        </van-button>
+    </van-field>
+    <van-field model:value="{{ customerPhone }}" label-class="title" input-class="inputStyle" placeholder="请输入客户电话" label="客户电话" required clearable  border="{{ false }}" bind:change="onProject"/>
+    <van-cell center custom-class="title" title="客户性别" required clearable title-width="100px" use-label-slot="true">
+        <van-radio-group value="{{ gender }}" direction="horizontal" bind:change="onChange">
+            <van-radio name="1">男</van-radio>
+            <van-radio name="0">女</van-radio>
+            <van-radio name="2">保密</van-radio>
+        </van-radio-group>
+    </van-cell>
+    <van-field model:value="{{ customerMarkers }}" label-class="title" input-class="inputStyle" placeholder="备注" label="备注" autosize clearable  border="{{ false }}" bind:change="onProject"/>
+    <view class="formSubmit">
+<!--        <van-button type="info" size="large">提交</van-button>-->
+        <van-button type="info" custom-class="formSubmit-btn" size="normal" bind:click="submitReport">提交</van-button>
+    </view>
+</van-cell-group>

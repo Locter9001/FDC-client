@@ -1,0 +1,105 @@
+.add {
+    width: 55px;
+    height: 60px;
+    padding: 5px;
+    background-color: #fdfdfd;
+    border-top: solid 1px #e3e3e3;
+    border-left: solid 1px #e3e3e3;
+    border-bottom: solid 1px #e3e3e3;
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-image {
+    width: 30px;
+    height: 30px;
+}
+
+.reports {
+    width: calc(100% - 100rpx);
+    height: 130px;
+    margin: 20rpx 30rpx;
+
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:  0 0 8px #d1d1d1,
+    -5px -5px 8px #ffffff;
+    padding: 20rpx;
+    background-color: #FFF;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.reports-left {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.reports-right {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.reports-left-title {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+
+.reports-left-title-left {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.reports-left-title-right {
+    font-size: 14px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.reports-left-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.reports-left-content-title {
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.reports-left-content-text {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.theImage {
+    width:70px;
+    height:70px;
+    transform: rotate(-25deg);
+}

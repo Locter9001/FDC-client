@@ -1,0 +1,76 @@
+<page-meta
+        background-text-style="{{bgTextStyle}}"
+        background-color="{{bgColor}}"
+        background-color-top="{{bgColorTop}}"
+        background-color-bottom="{{bgColorBottom}}"
+        scroll-top="{{scrollTop}}"
+        page-style="color: green"
+        root-font-size="16px"
+        bindscroll="scrollPage"
+>
+    <view class="swiperContainer">
+        <swiper class="imageContainer" bindchange="swiperChange" previous-margin="55rpx" next-margin="50rpx" circular autoplay>
+            <block wx:for="{{imager}}" wx:key="index">
+                <swiper-item class="turnItem">
+                    <image class="itemImg {{index === swiperCurrent ? 'imgActive': ''}}" src="{{item}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 指示点的修饰 -->
+        <view class="dots">
+            <block wx:for="{{ turnImg }}" wx:key="index">
+                <view class="dot{{index === swiperCurrent ? ' active' : ''}}"></view>
+            </block>
+        </view>
+    </view>
+
+<van-sticky>
+    <view style="{{ customClass }}" class="customBground">
+        <van-search value="{{ value }}" placeholder="请输入搜索关键词" shape="round"/>
+        <van-grid column-num="3" clickable="true">
+            <view wx:for="{{ funcAreas }}" wx:key="funcAreas" wx:for-index="index">
+                <van-grid-item icon="{{ item.src }}" text="{{ item.text }}" bind:click="toPage" data-idx="{{ index }}"/>
+            </view>
+        </van-grid>
+    </view>
+</van-sticky>
+
+<!-- <view class="Title">
+    推荐房源
+</view> -->
+
+<view wx:for="{{ show }}" wx:key="houses" class="goods" bind:tap="toGoodsPage" data-idx="{{ index }}">
+    <view class="houses-top">
+        <view class="houses-Image">
+            <van-image width="90" height="90" src="{{ item.pictures[0] }}" radius="5" />
+        </view>
+        <view class="houses-info">
+            <view class="houses-info-top">
+                <view class="houses-info-top-left">
+                    <view class="houses-info-top-boldText">{{ item.name }}</view>
+                    <view class="houses-info-top-boldText" style="color:red;">{{ item.price }}</view>
+                </view>
+                <van-button type="primary" size="mini" round icon="share-o" catchtap="shareGoods" hover-stop-propagation>分享</van-button>
+            </view>
+            <view class="houses-info-bot">
+                <block wx:for="{{item.tags}}" wx:key="tags" wx:for-item="tags">
+                    <van-tag plain type="primary" color="#7D7D7D" style="margin-right:2px;">{{ tags }}</van-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="houses-bot">
+        <view class="houses-bot-left">
+            <view class="houses-bot-left-top">
+                <view class="houses-bot-left-top-icon">佣</view>
+                <view class="houses-bot-left-top-text">2.55%or1.70%（垫）</view>
+            </view>
+            <view class="houses-bot-left-bot">
+                津地产
+            </view>
+        </view>
+        <van-button type="info" size="mini" round icon="guide-o" catchtap="report" hover-stop-propagation>报备</van-button>
+    </view>
+</view>
+
+</page-meta>
