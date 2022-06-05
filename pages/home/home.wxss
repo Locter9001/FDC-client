@@ -61,10 +61,10 @@
 
 .goods {
     margin: 20rpx 30rpx;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow:  0 0 16px #d1d1d1,
-    -5px -5px 16px #ffffff;
+    box-shadow:  0 0 6px #d1d1d1,
+    -5px -5px 6px #ffffff;
     padding: 10px;
     background-color: #FFF;
 }
@@ -72,10 +72,10 @@
 .customBground {
     background-color: #4094f4;
     margin: 20rpx 30rpx;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow:  0 0 16px #d1d1d1,
-    -5px -5px 16px #ffffff;
+    box-shadow:  0 0 6px #d1d1d1,
+    -5px -5px 6px #ffffff;
 }
 
 .houses-top {

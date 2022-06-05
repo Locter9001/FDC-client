@@ -121,6 +121,7 @@ Page({
 			formData: { fileType: 'report' },
 			success(res) {
 				// 上传完成需要更新 fileList
+				console.log(res)
 				let data = res.data
 				const ress = JSON.parse(data)
 				console.log(ress)

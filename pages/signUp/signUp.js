@@ -107,13 +107,13 @@ Page({
   },
 
 
-  //housePicture 户型图
+  //上传头像
   UpAvatar(e) {
     let that = this;
     const { file } = e.detail;
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
     wx.uploadFile({
-      url: config.host + '/liang-api/master/upfile', // 仅为示例，非真实的接口地址
+      url: config.host + '/liang-api/master/avatar', // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: 'file',
       formData: { fileType: 'avatar' },

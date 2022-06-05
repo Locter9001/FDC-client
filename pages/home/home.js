@@ -13,7 +13,7 @@ Page({
 	data: {
 		imageURL: "https://img01.yzcdn.cn/vant/ipad.jpeg",
 		topTitle: "技术是开发它的人的共同灵魂。",
-		customClass: "margin: 20rpx 30rpx;  border-radius: 20px;  overflow: hidden;  box-shadow:  0 0 16px #d1d1d1,  -5px -5px 16px #ffffff;",
+		customClass: "margin: 20rpx 30rpx;  border-radius: 10px;  overflow: hidden;  box-shadow:  0 0 16px #d1d1d1,  -5px -5px 16px #ffffff;",
 		swiperCurrent:"",
 		imager: [
 			"https://pic4.ajkimg.com/display/xinfang/0be7980e73954b6a79202608772cf6f9/600x450x98c.jpg",
