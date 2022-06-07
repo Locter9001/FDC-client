@@ -17,7 +17,8 @@
     "pages/selectUser/selectUser",
     "pages/user-update/user-update",
     "pages/houses/houses",
-    "pages/signup-users/signup-users"
+    "pages/signup-users/signup-users",
+    "pages/web-view/web-view"
   ],
   "window": {
     "backgroundTextStyle": "light",

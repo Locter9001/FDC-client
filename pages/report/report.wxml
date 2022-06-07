@@ -11,7 +11,7 @@
     </van-field>
     <van-field model:value="{{ customerPhone }}" label-class="title" input-class="inputStyle" placeholder="请输入客户电话" label="客户电话" required clearable  border="{{ false }}" bind:change="onProject"/>
     <van-cell center custom-class="title" title="客户性别" required clearable title-width="100px" use-label-slot="true">
-        <van-radio-group value="{{ gender }}" direction="horizontal" bind:change="onChange">
+        <van-radio-group model:value="{{ gender }}" direction="horizontal" bind:change="onChange">
             <van-radio name="1">男</van-radio>
             <van-radio name="0">女</van-radio>
             <van-radio name="2">保密</van-radio>

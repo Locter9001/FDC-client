@@ -10,14 +10,14 @@
 
 
     <!-- 生成标签 -->
-    <van-field value="{{ tag }}" clearable="true" label="标签" placeholder="请输入房屋标签" bind:blur="createTagValue" border="{{ false }}" use-button-slot>
+    <van-field value="{{ tag }}" clearable="true" label="标签" placeholder="请输入房屋标签" bind:blur="createTagValue" bind:change="createTagValue" border="{{ false }}" use-button-slot>
         <van-button slot="button" size="small" color="linear-gradient(to right, #4bb0ff, #6149f6)" bind:click="createTag">
             生成
         </van-button>
     </van-field>
     <view class="tags">
         <!-- 标签展示区 -->
-        <van-tag plain type="success" wx:for="{{ tags }}" wx:key="tags" size="medium">{{ item }}</van-tag>
+        <van-tag plain type="success" closeable wx:for="{{ tags }}" wx:key="tags" size="medium" bind:close="close_tags" data-idx="{{ index }}">{{ item }}</van-tag>
     </view>
 
 
@@ -31,7 +31,7 @@
             打开日历
         </van-button>
     </van-field>
-    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" type="single" title="请选择开盘日期"/>
+    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" type="single" min-date="{{ minDate }}" title="请选择开盘日期"/>
 
 
     <!-- 地址 -->
@@ -41,18 +41,20 @@
         </van-button>
     </van-field>
 
-
+    <van-field model:value="{{ web_src }}" required="true" clearable="true" label="详细网址" placeholder="请输入网址" maxlength="200"/>
+    <van-field model:value="{{ pd }}" required="true" clearable="true" label="地产商" placeholder="请输入地产商名称" maxlength="20"/>
+    <van-field model:value="{{ commission }}" required="true" clearable="true" label="佣金" placeholder="请输入佣金" maxlength="20"/>
     <!-- 上传轮播图 -->
     <view class="upload">
-        <van-field label="轮播图" readonly="true" required="true" border="{{ false }}" />
+        <van-field label="轮播图 (尺寸：794px×1123px)" title-width="200px" donly="true" required="true"  border="{{ false }}" />
         <view class="upload-view">
-            <van-uploader file-list="{{ FileList }}" bind:after-read="afterRead" data-imgType="item"/>
+            <van-uploader file-list="{{ FileList }}" multiple="{{ true }}" bind:after-read="afterRead" bind:delete="deletePicture" data-imgType="item"/>
         </view>
     </view>
 
 
     <!-- 户型编辑 -->
-    <van-field label="户型编辑" readonly="true" required="true" border="{{ false }}" />
+<!--    <van-field label="户型编辑" readonly="true" required="true" border="{{ false }}" />-->
     <view class="houseForm">
         <view class="house-item" wx:for="{{ houseForm }}" wx:key="houseForm" wx:for-index="idx">
             <!-- 显示当前位置 -->
@@ -62,7 +64,7 @@
             <!-- 户型大小 -->
             <van-field value="{{  item.size  }}" required="true" clearable="true" type="number" label="户型大小" placeholder="请输入平米" bind:blur="houseSize" data-idx="{{ idx }}" />
             <!-- 平方价格 -->
-            <van-field value="{{  item.price  }}" required="true" clearable="true" type="number" label="每平方米价格" placeholder="请输入平米" bind:blur="houseSizePrice" data-idx="{{ idx }}" />
+            <van-field value="{{  item.price  }}" required="true" clearable="true" type="number" label="每平方米价格" placeholder="请输入每平米价格" bind:blur="houseSizePrice" data-idx="{{ idx }}" />
             <!-- 装修状态 -->
             <van-field value="{{  item.decorateType  }}" required="true" clearable="true" label="装修类型" placeholder="请输入装修类型" bind:blur="houseDecorateType" data-idx="{{ idx }}" />
             <!-- 销售状态 -->

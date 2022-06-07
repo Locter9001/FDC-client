@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "@vant/weapp/tag/index",
+    "image-view": "/components/image-view/image-view"
   },
   "navigationBarTitleText":"楼盘详细"
 }

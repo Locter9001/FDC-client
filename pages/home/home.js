@@ -126,9 +126,9 @@ Page({
 		})
 	},
 
-	report() {
+	report(e) {
 		wx.navigateTo({
-			url: '/pages/report/report'
+			url: '/pages/report/report?id=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name
 		})
 	},
 

@@ -1,6 +1,6 @@
 <swiper class="imagerSwiper" indicator-dots="true">
     <swiper-item class="imager" wx:for="{{ show.pictures }}" wx:key="toThis" wx:for-item="item">
-            <van-image width="100%" height="100%" fit="cover" src="{{item}}" />
+            <van-image width="100%" height="100%" fit="cover" src="{{item}}" bind:tap="showImage" data-imageSrc="{{ item }}"/>
     </swiper-item>
 </swiper>
 
@@ -16,7 +16,7 @@
     <view class="top-content">
         <view class="top-content-line">
             <view class="top-content-line-title">参考价格：</view>
-            <view class="redTitle">{{ show.price }}</view>
+            <view class="redTitle">{{ show.price }}/㎡起</view>
         </view>
         <view class="top-content-line">
             <view class="top-content-line-title">开盘时间：</view>
@@ -27,10 +27,12 @@
             <view class="top-content-line-content">{{show.address.detail}}</view>
         </view>
     </view>
-    <view class="more">
+    <view class="more" bind:tap="to_link">
         <text>详细信息</text>
     </view>
 </view>
+
+<image-view imageSrc="{{ imageSrc }}" show="{{ imageShow }}"></image-view>
 
 <view class="InfoBoxStyle">
     <view class="topLine">
@@ -38,7 +40,7 @@
     </view>
     <scroll-view class="houseTypes" enable-flex="true" scroll-x="true" enhanced="true" show-scrollbar="false">
         <view class="houseTypes-Info" wx:for="{{show.houseType}}" wx:key="houseTypes">
-            <image src="{{item.picture}}" mode="aspectFit" class="houseTypes-image" />
+            <image src="{{item.picture}}" mode="aspectFit" class="houseTypes-image" bind:tap="showImage" data-imageSrc="{{ item.picture }}"/>
             <view class="houseInfo-line">
                 <view class="houseInfo-bold">{{item.name}}</view>
                 <view class="houseInfo-tag">

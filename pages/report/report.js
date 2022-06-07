@@ -58,8 +58,15 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad(options) {
-		wx.setStorageSync('selectUser', '')
-		wx.setStorageSync('select', '')
+
+		let that = this;
+		let id = options.id
+		let name = options.name
+		if (id !== undefined && name !== undefined) {
+			that.setData({
+				name
+			})
+		}
 	},
 
 	/**
@@ -82,6 +89,7 @@ Page({
 				gender: selectUser.customerGender+'',
 			})
 		}
+
 		let selectGoods = wx.getStorageSync('select')
 		console.log(selectGoods[0])
 		if (selectGoods !== '' || selectGoods !== []) {
@@ -100,6 +108,17 @@ Page({
 				}
 			}
 		}
+
+		let item = wx.getStorageSync('item')
+		if (item !== undefined) {
+			console.log(item)
+			that.setData({
+				customer: item.Customer.customerName,
+				customerPhone: item.Customer.customerPhone,
+				name: item.building,
+				gender: item.Customer.customerGender + '',
+			})
+		}
 	},
 
 	/**
@@ -113,7 +132,9 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload() {
-
+		wx.removeStorageSync('selectUser')
+		wx.removeStorageSync('select')
+		wx.removeStorageSync('item')
 	},
 
 	/**

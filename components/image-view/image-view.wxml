@@ -1,0 +1,5 @@
+<van-overlay show="{{ show }}" bind:click="onClickHide" >
+    <view class="theImage">
+        <image src="{{ imageSrc }}" mode="aspectFit"></image>
+    </view>
+</van-overlay>

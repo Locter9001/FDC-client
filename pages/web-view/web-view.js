@@ -1,54 +1,20 @@
+// pages/web-view/web-view.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatar: "https://img.yzcdn.cn/vant/cat.jpeg",
-    name: "罗斯特er"
-  },
-
-  addHouse() {
-    wx.navigateTo({
-      url: '/pages/insertGoods/insertGoods'
-    })
-  },
-  toSettings() {
-    wx.navigateTo({
-      url: '/pages/settingpage/setting'
-    })
-  },
-
-  Masters() {
-    wx.navigateTo({
-      url: '/pages/user-update/user-update'
-    })
-  },
-
-  allSignupUser() {
-    wx.navigateTo({
-      url: '/pages/signup-users/signup-users'
-    })
-  },
-
-
-  toLogin() {
-    wx.navigateTo({
-      url: '/pages/login/login'
-    })
+    src: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let that = this;
-    let userInfo = wx.getStorageSync('userInfo')
-    if (userInfo !== undefined) {
-      that.setData({
-        userInfo: userInfo
-      })
-    }
+    this.setData({
+      src: options.src
+    })
   },
 
   /**

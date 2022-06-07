@@ -31,7 +31,11 @@ Page({
 				decorateType: "",
 				price: ''
 			}
-		]
+		],
+		web_src: '',
+		pd: '',
+		commission: '',
+		minDate: new Date(2015, 0, 1).getTime()
 	},
 
 	onChange(event) {
@@ -55,6 +59,9 @@ Page({
 
 	createTagValue(e) {
 		tag = e.detail.value;
+		if (tag === undefined) {
+			tag = e.detail
+		}
 	},
 
 	createTag() {
@@ -70,9 +77,11 @@ Page({
 	},
 
 	onConfirm(event) {
+		let data = this.formatDate(event.detail);
+		console.log(data)
 		this.setData({
 			show: false,
-			startTime: this.formatDate(event.detail),
+			startTime: data,
 		});
 	},
 
@@ -112,30 +121,45 @@ Page({
 		let that = this;
 		console.log(event)
 		const { file } = event.detail;
+		console.log(file)
 		// 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
 		let token = wx.getStorageSync('token')
-		wx.uploadFile({
-			url: config.host + '/liang-api/master/upfile/' + token, // 仅为示例，非真实的接口地址
-			filePath: file.url,
-			name: 'file',
-			formData: { fileType: 'report' },
-			success(res) {
-				// 上传完成需要更新 fileList
-				console.log(res)
-				let data = res.data
-				const ress = JSON.parse(data)
-				console.log(ress)
-				const urls = ress.urls
-				let FileList = that.data.FileList
-				for (let i = 0; i < urls.length; i++) {
-					pictures.push( urls[i] );
-					FileList.push({ url: urls[i] })
-				}
-				console.log(FileList)
-				that.setData({ FileList });
-			},
-		});
+		for (let i = 0; i < file.length; i ++) {
+			wx.uploadFile({
+				url: config.host + '/liang-api/master/upfile/' + token, // 仅为示例，非真实的接口地址
+				filePath: file[i].url,
+				name: 'file',
+				formData: { fileType: 'report' },
+				success(res) {
+					// 上传完成需要更新 fileList
+					console.log(res)
+					let data = res.data
+					const ress = JSON.parse(data)
+					console.log(ress)
+					const urls = ress.urls
+					let FileList = that.data.FileList
+					for (let i = 0; i < urls.length; i++) {
+						pictures.push( urls[i] );
+						FileList.push({ url: urls[i] })
+					}
+					console.log(FileList)
+					that.setData({ FileList });
+				},
+			});
+		}
+
 	},
+
+	deletePicture(e) {
+		let that = this;
+		let i = e.detail.index
+		let FileList = that.data.FileList
+		FileList.splice(Number(i), 1)
+		that.setData({
+			FileList
+		})
+	},
+
 
 	deleteThisForm(e) {
 		console.log(e.currentTarget.dataset["index"])
@@ -266,6 +290,34 @@ Page({
 		})
 	},
 
+	arr_delete(arr, idx) {
+		let Array = []
+		for (let i = 0; i < arr.length; i ++) {
+			if (i === idx) {
+				continue;
+			}
+			Array.push(arr[i])
+		}
+		return Array
+	},
+
+
+	close_tags(e) {
+		let that = this;
+		let index = e.currentTarget.dataset.idx
+		let tags = that.arr_delete(that.data.tags, index)
+		console.log(tags)
+		if (tags == null) {
+			that.setData({
+				tags: []
+			})
+		} else {
+			that.setData({
+				tags
+			})
+		}
+	},
+
 
 	//提交
 	formSubmit() {
@@ -283,7 +335,10 @@ Page({
 			startTime: that.data.startTime,
 			address: that.data.address,
 			pictures: pictures,
-			houseType: that.data.houseForm
+			houseType: that.data.houseForm,
+			web_src: that.data.web_src,
+			pd: that.data.pd,
+			commission: that.data.commission
 		}
 		for (let fromKey in form) {
 			if (fromKey !== 0 || fromKey !== '' ) {

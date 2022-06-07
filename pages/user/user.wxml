@@ -1,10 +1,10 @@
 <view class="top">
     <view class="row">
         <view class="avatar" bind:tap="toLogin">
-            <van-image width="60px" height="60px" src="{{ avatar }}" />
+            <van-image width="60px" height="60px" src="{{ userInfo.avatar }}" />
         </view>
         <view class="userInfo">
-            {{ name }}
+            {{ userInfo.name }}
         </view>
     </view>
 </view>
@@ -19,9 +19,9 @@
 
 <view class="setings">
     <van-cell-group clickable="true">
-    <van-cell title="新增房源" clickable="true" bind:click="addHouse"/>
-    <van-cell title="用户管理" clickable="true" bind:click="Masters"/>
-    <van-cell title="申请注册用户" clickable="true" bind:click="allSignupUser"/>
+    <van-cell title="新增房源" clickable="true" wx:if="{{ userInfo.power > 1 }}" bind:click="addHouse"/>
+    <van-cell title="用户管理" clickable="true" wx:if="{{ userInfo.power > 1 }}" bind:click="Masters"/>
+    <van-cell title="申请注册用户" clickable="true" wx:if="{{ userInfo.power > 1 }}" bind:click="allSignupUser"/>
     <van-cell title="绩效中心" clickable="true" />
     <van-cell title="关于我们" clickable="true" />
     <van-cell title="设置" clickable="true" bind:click="toSettings"/>

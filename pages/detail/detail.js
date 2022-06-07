@@ -39,13 +39,31 @@ Page({
         price: "5000元/㎡"
       }
     ],
-    show: {}
+    show: {},
+    imageSrc: '',
+    imageShow: false
   },
 
   onClickIcon() {
   },
 
   onClickButton() {
+  },
+
+  showImage(e) {
+    let imageSrc = e.currentTarget.dataset.imagesrc;
+    wx.previewImage({
+      current: imageSrc, // 当前显示图片的 http 链接
+      urls: [imageSrc] // 需要预览的图片 http 链接列表
+    })
+  },
+
+
+  to_link() {
+    let that = this;
+    wx.navigateTo({
+      url:"/pages/web-view/web-view?src=" + that.data.show.web_src
+    })
   },
 
   /**

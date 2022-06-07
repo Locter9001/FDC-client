@@ -39,7 +39,9 @@ Page({
 		]
 	},
 
-	report() {
+	report(e) {
+		let item = e.currentTarget.dataset.item
+		wx.setStorageSync('item', item)
 		wx.navigateTo({
 			url: '/pages/report/report',
 		})

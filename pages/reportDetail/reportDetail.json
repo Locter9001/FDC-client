@@ -2,7 +2,7 @@
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-divider": "@vant/weapp/divider/index",
-    "processBar": "/components/processBar",
+    "processBar": "/components/processBar/processBar",
     "van-icon": "@vant/weapp/icon/index"
   },
   "navigationStyle": "custom"

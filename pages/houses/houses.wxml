@@ -1,6 +1,7 @@
 <van-sticky>
     <van-search  value="{{ value }}" shape="round" background="#FFF" placeholder="请输入搜索关键词" sticky/>
 </van-sticky>
+
 <view wx:for="{{ show }}" wx:key="houses" class="goods" bind:tap="toGoodsPage" data-idx="{{ index }}">
     <view class="houses-top">
         <view class="houses-Image">
@@ -10,9 +11,9 @@
             <view class="houses-info-top">
                 <view class="houses-info-top-left">
                     <view class="houses-info-top-boldText">{{ item.name }}</view>
-                    <view class="houses-info-top-boldText" style="color:red;">{{ item.price }}</view>
+                    <view class="houses-info-top-boldText" style="color:red;">{{ item.price }}/㎡起</view>
                 </view>
-                <van-button type="primary" size="mini" round icon="share-o" bind:click="shareGoods" hover-stop-propagation>分享</van-button>
+                <van-button type="primary" size="mini" round icon="share-o" catchtap="shareGoods" hover-stop-propagation>分享</van-button>
             </view>
             <view class="houses-info-bot">
                 <block wx:for="{{item.tags}}" wx:key="tags" wx:for-item="tags">
@@ -25,12 +26,12 @@
         <view class="houses-bot-left">
             <view class="houses-bot-left-top">
                 <view class="houses-bot-left-top-icon">佣</view>
-                <view class="houses-bot-left-top-text">2.55%or1.70%（垫）</view>
+                <view class="houses-bot-left-top-text">{{ item.commission }}</view>
             </view>
             <view class="houses-bot-left-bot">
-                津地产
+                {{ item.pd }}
             </view>
         </view>
-        <van-button type="info" size="mini" round icon="guide-o" bind:click="report" hover-stop-propagation>报备</van-button>
+        <van-button type="info" size="mini" round icon="guide-o" catchtap="report" data-id="{{ item.id }}" data-name="{{ item.name }}" hover-stop-propagation>报备</van-button>
     </view>
 </view>

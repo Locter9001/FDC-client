@@ -72,6 +72,20 @@ Page({
     }, 2000)
   },
 
+  shareGoods(e) {
+    console.log(e)
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
+  },
+
+  report(e) {
+    wx.navigateTo({
+      url: '/pages/report/report?id=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

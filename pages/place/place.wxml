@@ -48,7 +48,7 @@
 
         <view class="reports-right">
             <image class="theImage" src="{{ RState[item.reportStatus] }}" />
-            <van-button type="info" size="small" round bind:click="report">再次报备</van-button>
+            <van-button type="info" size="small" round bind:click="report" data-item="{{ item }}">再次报备</van-button>
         </view>
     </view>
 </block>
