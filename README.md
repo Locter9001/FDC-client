@@ -1,6 +1,9 @@
 # FDC-client
 > 房产中介小程序前端
-
+> 
+> 后端链接： [房地产中介小程序 GO语言 后端](https://github.com/Locter9001/FDC-server)
+> 
+> 前端链接： [房地产中介小程序 前端](https://github.com/Locter9001/FDC-client)
 ## 技术栈
     前端： 原生小程序 + vant UI
     后端： Go + Gin + Redis
